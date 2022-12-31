@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Product</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        function loadAccess(){
+           // alert("page loaded");
+            if (sessionStorage.getItem("userid")!=null) {
+                document.getElementById("spid").innerHTML = sessionStorage.getItem("userid");
+            }else{
+                location.replace("example1.html");
+            }
+
+        }
+        function logout(){
+            sessionStorage.clear();
+            location.replace("example1.html");
+        }
+    </script>
+</head>
+  <body onload="loadAccess()">
+      <div class="container">
+        <div class="jumbotron">
+            <p>Welcome <span id="spid" style="text-transform: capitalize;" class="text-danger"></span></p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" onclick="logout(); return false;" role="button">Logout</a>
+            </p>
+        </div>
+      </div>
+   
+  </body>
+</html>
